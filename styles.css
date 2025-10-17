@@ -15,9 +15,10 @@ body {
   flex-direction: column;
   justify-content: center;
   width: 300px;
-  height: 500px;
-  font-size: 24px;
-  border: 2px solid green;
+  height: 450px;
+  font-size: 36px;
+  font-weight: 900;
+  border: 2px solid #32A956;
   padding: 12px;
 }
 
@@ -25,12 +26,33 @@ body {
 
 .display {
   flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
+
+.display div {
+  background-color: #32A956;
+  height: 70px;
+  flex-grow: 1;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#input div {
+  text-align: right;
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 56px;
+}
+
 
 .keyboard {
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
+  flex-grow: 4;
   height: 200px;
 
 }
@@ -53,7 +75,18 @@ button {
   flex-grow: 1;
   width: 60px;
   height: 60px;
+  background-color: white;
+  border: 1px solid #32A956;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
 }
+
+button:hover {
+  background-color: #32A956;
+  color: white;
+}
+
 
 
 
