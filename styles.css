@@ -1,0 +1,59 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 500px;
+  font-size: 24px;
+  border: 2px solid green;
+  padding: 12px;
+}
+
+
+
+.display {
+  flex-grow: 1;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  height: 200px;
+
+}
+
+.first-row, .second-row, .third-row, .fourth-row, .fifth-row {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-grow: 1;
+  align-items: center;
+  gap: 8px;
+}
+
+div.keyboard div div {
+  flex-grow: 1;
+  display: flex;
+}
+
+button {
+  flex-grow: 1;
+  width: 60px;
+  height: 60px;
+}
+
+
+
