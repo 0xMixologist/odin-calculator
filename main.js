@@ -51,16 +51,16 @@ operand.forEach((operand) => {
 function operate(operator, last) {
   switch(operator) {
     case "+":
-      console.log(add(calculation, last));
+      displayContent.textContent = `${add(calculation, last)}`;
       break;
     case "-":
-      console.log(subtract(calculation, last));
+      displayContent.textContent = `${subtract(calculation, last)}`;
       break;
     case "/":
-      console.log(divide(calculation, last));
+      displayContent.textContent = `${divide(calculation, last)}`;
       break;
     case "*":
-      console.log(multiply(calculation, last));
+      displayContent.textContent = `${multiply(calculation, last)}`;
       break;
     default:
       console.log("Invalid Operator");
