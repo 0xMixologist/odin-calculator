@@ -6,6 +6,7 @@ let initialValue = null;
 let operator = null;
 let operation = false;
 let memory = null;
+let trigger = false;
 
 console.log(digit);
 
@@ -29,9 +30,14 @@ operand.forEach((operand) => {
     calculation.push(parseInt(displayContent.textContent));
     operation = true;
     operator = operand.textContent;
+    if (memory === null && !trigger) {
+      memory = operator;
+    }
+
     if (memory !== null && operator !== memory) {
       initialValue = null;
       console.log(operate(memory, 1));
+      memory = operator;//calculates the pending operation when swithicng operator
     }
       
     if (initialValue !== null) {
@@ -51,10 +57,10 @@ function operate(operator, last) {
       console.log(subtract(calculation, last));
       break;
     case "/":
-      divide();
+      console.log(divide(calculation, last));
       break;
     case "*":
-      multiply();
+      console.log(multiply(calculation, last));
       break;
     default:
       console.log("Invalid Operator");
@@ -73,6 +79,7 @@ function add(array, last) {
     return result;
   };
   memory = "+";
+  trigger = true;
   return result; 
 
 }
@@ -88,9 +95,25 @@ function subtract(array, last) {
   return result;
 }
 
-function divide() {
+function divide(array, last) {
+  result = calculation[0] / calculation[1];
+  calculation = [result];
+  if (last) {
+    memory = null;
+    return result;
+  };
+  memory = "/";
+  return result;
 }
 
-function multiply() {
+function multiply(array, last) {
+  result = calculation[0] * calculation[1];
+  calculation = [result];
+  if (last) {
+    memory = null;
+    return result;
+  };
+  memory = "*";
+  return result;
 }
 
