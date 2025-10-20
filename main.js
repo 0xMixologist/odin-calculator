@@ -1,6 +1,8 @@
 const digit = document.querySelectorAll(".digit");
 const operand = document.querySelectorAll(".operand");
+const clearButton = document.querySelectorAll(".clear-button");
 const displayContent = document.querySelector("#content");
+
 let calculation = [];
 let initialValue = null;
 let operator = null;
@@ -46,6 +48,25 @@ operand.forEach((operand) => {
     return;
   });
 });
+
+clearButton.forEach((button) => {
+  button.addEventListener("click", () => {
+    switch(button.id) {
+      case "ac":
+        memory = null;
+        initialValue = null;
+        operator = null;
+        operation = false;
+        calculation = [];
+        displayContent.textContent = "";
+        break;
+      case "ce":
+        displayContent.textContent = "";
+        break;
+    };
+  });
+});
+    
 
 
 function operate(operator, last) {
