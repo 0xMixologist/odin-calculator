@@ -18,7 +18,25 @@ operand.forEach((operand) => {
 
 
 function operate(operator) {
+  switch(operator) {
+    case "+":
+      add();
+      break;
+    case "-":
+      subtract();
+      break;
+    case "/":
+      divide();
+      break;
+    case "*":
+      multiply();
+      break;
+    default:
+      console.log("Invalid Operator");
+  };
+}
   
+
 }
 
 function add() {
