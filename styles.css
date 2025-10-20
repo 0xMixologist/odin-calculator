@@ -38,13 +38,15 @@ body {
   display: flex;
   align-items: center;
   font-family: 'Courier New', Courier, monospace;
+  max-width: 300px;
+  overflow: hidden;
 }
 
 #input div {
   text-align: right;
   flex-grow: 1;
   justify-content: flex-end;
-  padding-right: 8px;
+  padding: 0px 8px;
   font-size: 56px;
 }
 
