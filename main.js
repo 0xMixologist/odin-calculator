@@ -8,9 +8,10 @@ let initialValue = null;
 let operator = null;
 let operation = false;
 let memory = null;
-let trigger = false;
 
 console.log(digit);
+console.log(typeof(displayContent.textContent));
+console.log(displayContent.textContent);
 
 digit.forEach((digit) => {digit
     .addEventListener("click", () => {
@@ -29,21 +30,39 @@ digit.forEach((digit) => {digit
   
 operand.forEach((operand) => {
   operand.addEventListener("click", () => {
-    calculation.push(parseInt(displayContent.textContent));
-    operation = true;
-    operator = operand.textContent;
-    if (memory === null && !trigger) {
-      memory = operator;
-    }
-
-    if (memory !== null && operator !== memory) {
-      initialValue = null;
-      console.log(operate(memory, 1));
-      memory = operator;//calculates the pending operation when swithicng operator
-    }
+    console.log("clicked an operator")
+    if (displayContent.textContent !== "") {
+      calculation.push(parseInt(displayContent.textContent));
+      console.log("before = got pressed" + calculation);
+      operation = true;
+      operator = operand.textContent;
+      if (operator === "=") {
+        console.log(operate(memory, 1));
+        memory = null;
+        operator = null;
+        console.log(calculation);
+        calculation = [];
+        initialValue = null;
+        return;
+      }
       
-    if (initialValue !== null) {
-      console.log(operate(operator, 0));
+      if (memory === null) {
+        memory = operator;
+      }
+
+      if (memory !== null && operator !== memory) {
+        initialValue = null;
+        console.log(operate(memory, 1));
+        memory = operator;//calculates the pending operation when swithicng operator
+      }
+        
+      if (initialValue !== null) {
+        console.log(operate(operator, 0));
+      }
+      return;
+    }
+    else {
+      console.log("please dont");
     }
     return;
   });
@@ -100,7 +119,6 @@ function add(array, last) {
     return result;
   };
   memory = "+";
-  trigger = true;
   return result; 
 
 }
